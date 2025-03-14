@@ -109,35 +109,114 @@ body {
 .why-choose-us {
     padding: 4rem 5%;
     text-align: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+    border-radius: 20px;
+    margin: 2rem 5%;
 }
 
-.why-choose-us h2 {
+.gradient-text {
     margin-bottom: 1rem;
     font-size: 2.5rem;
+    background: linear-gradient(45deg, #ff8c00, #ff4500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.fruit-grid-container {
+    overflow: hidden;
+    padding: 2rem 0;
+    margin-top: 2rem;
 }
 
 .fruit-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
     gap: 2rem;
-    margin-top: 3rem;
+    animation: scroll 40s linear infinite;
+    width: fit-content;
 }
 
 .fruit-card {
-    background-color: rgba(255, 255, 255, 0.1);
+    min-width: 280px;
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.2) 0%, rgba(255, 69, 0, 0.2) 100%);
     border-radius: 20px;
     padding: 2rem;
-    transition: transform 0.3s ease;
-    animation: fadeInUp 1s ease;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .fruit-card:hover {
     transform: translateY(-10px);
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.3) 0%, rgba(255, 69, 0, 0.3) 100%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .fruit-card img {
-    max-width: 100%;
-    height: auto;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.fruit-card:hover img {
+    transform: scale(1.1);
+}
+
+.card-text {
+    text-align: center;
+}
+
+.card-text h3 {
+    color: #ff6b00;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.card-text p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-280px * 4 - 8rem)); /* 4 cards width + gaps */
+    }
+}
+
+/* Add hover pause for the animation */
+.fruit-grid-container:hover .fruit-grid {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .gradient-text {
+        font-size: 2rem;
+    }
+    
+    .fruit-card {
+        min-width: 240px;
+    }
+    
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-240px * 4 - 8rem));
+        }
+    }
 }
 
 /* Menu Section */
