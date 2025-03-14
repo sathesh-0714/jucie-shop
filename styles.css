@@ -689,4 +689,128 @@ body {
         width: 100%;
         justify-content: center;
     }
+}
+
+/* Developers Section */
+.developers-section {
+    padding: 4rem 5%;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+    border-radius: 20px;
+    margin: 2rem 5%;
+}
+
+.section-description {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.developers-grid {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.developer-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 350px;
+    width: 100%;
+}
+
+.developer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.2) 0%, rgba(255, 69, 0, 0.2) 100%);
+}
+
+.dev-image {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+.dev-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.developer-card:hover .dev-image img {
+    transform: scale(1.1);
+}
+
+.dev-social {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    transition: bottom 0.3s ease;
+}
+
+.developer-card:hover .dev-social {
+    bottom: 0;
+}
+
+.dev-social a {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.dev-social a:hover {
+    background: #ff6b00;
+    transform: translateY(-5px);
+}
+
+.dev-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.dev-info h3 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.dev-role {
+    color: #ff6b00;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.dev-info p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .developers-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    
+    .dev-image {
+        height: 250px;
+    }
 } 
