@@ -40,6 +40,114 @@
             </div>
         </section>
 
+        <section class="trending-section">
+            <div class="trending-nav">
+                <h2 class="section-title animate__animated animate__fadeInDown">What's Hot</h2>
+                <div class="trending-tabs">
+                    <button class="tab-btn active" data-tab="trending">
+                        <i class="fas fa-fire"></i> Trending
+                    </button>
+                    <button class="tab-btn" data-tab="new">
+                        <i class="fas fa-star"></i> New
+                    </button>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="trending">
+                <div class="trending-grid">
+                    <div class="trending-card animate__animated animate__fadeInUp">
+                        <div class="trend-badge">
+                            <i class="fas fa-fire"></i> Popular
+                        </div>
+                        <img src="images/mango.png" alt="Trending Juice 1">
+                        <h3>Tropical Paradise</h3>
+                        <p>Mango & Passion Fruit Blend</p>
+                        <div class="trend-footer">
+                            <span class="price">$12.99</span>
+                            <button class="order-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="trending-card animate__animated animate__fadeInUp">
+                        <div class="trend-badge">
+                            <i class="fas fa-fire"></i> Best Seller
+                        </div>
+                        <img src="images/berry.png" alt="Trending Juice 2">
+                        <h3>Berry Blast</h3>
+                        <p>Mixed Berry Explosion</p>
+                        <div class="trend-footer">
+                            <span class="price">$11.99</span>
+                            <button class="order-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="trending-card animate__animated animate__fadeInUp">
+                        <div class="trend-badge">
+                            <i class="fas fa-fire"></i> Hot
+                        </div>
+                        <img src="images/watermelon.png" alt="Trending Juice 3">
+                        <h3>Summer Refresh</h3>
+                        <p>Watermelon & Mint Cooler</p>
+                        <div class="trend-footer">
+                            <span class="price">$10.99</span>
+                            <button class="order-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content hidden" id="new">
+                <div class="trending-grid">
+                    <div class="trending-card animate__animated animate__fadeInUp">
+                        <div class="trend-badge new">
+                            <i class="fas fa-star"></i> New
+                        </div>
+                        <img src="images/kiwi.png" alt="New Juice 1">
+                        <h3>Green Energy</h3>
+                        <p>Kiwi & Spinach Boost</p>
+                        <div class="trend-footer">
+                            <span class="price">$13.99</span>
+                            <button class="order-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="trending-card animate__animated animate__fadeInUp">
+                        <div class="trend-badge new">
+                            <i class="fas fa-star"></i> New
+                        </div>
+                        <img src="images/grapes.png" alt="New Juice 2">
+                        <h3>Purple Heart</h3>
+                        <p>Grape & Blueberry Fusion</p>
+                        <div class="trend-footer">
+                            <span class="price">$12.99</span>
+                            <button class="order-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="trending-card animate__animated animate__fadeInUp">
+                        <div class="trend-badge new">
+                            <i class="fas fa-star"></i> New
+                        </div>
+                        <img src="images/pineapple.png" alt="New Juice 3">
+                        <h3>Tropical Twist</h3>
+                        <p>Pineapple & Coconut Dream</p>
+                        <div class="trend-footer">
+                            <span class="price">$11.99</span>
+                            <button class="order-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="why-choose-us" id="features">
             <h2>Why You should Choose us ?</h2>
             <p>Our commitment to excellence in the realm of juices sets us apart from the competition.</p>
@@ -131,5 +239,40 @@
             </div>
         </section>
     </main>
+    <script>
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                    // Remove animation classes
+                    const cards = content.querySelectorAll('.trending-card');
+                    cards.forEach(card => {
+                        card.classList.remove('animate__animated', 'animate__fadeInUp');
+                    });
+                });
+                
+                // Show selected tab content
+                const targetTab = document.getElementById(btn.dataset.tab);
+                targetTab.classList.remove('hidden');
+                // Add animation to cards
+                const cards = targetTab.querySelectorAll('.trending-card');
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('animate__animated', 'animate__fadeInUp');
+                    }, index * 100);
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
